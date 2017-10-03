@@ -1,7 +1,7 @@
 {
   "isDev": false,
   "server": {
-    "port": 80,
+    "port": 8888,
     "/* secure */": "/* whether this connects via https */",
     "secure": false,
     "key": "config/sslcerts/key.pem",
