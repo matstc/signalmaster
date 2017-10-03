@@ -3,7 +3,7 @@ var yetify = require('yetify'),
     config = require('getconfig'),
     fs = require('fs'),
     sockets = require('./sockets'),
-    port = parseInt(process.env.PORT || config.server.port, 10),
+    port = parseInt(process.env.SIGNAL_SERVER_PORT || config.server.port, 10),
     server_handler = function (req, res) {
         res.writeHead(404);
         res.end();
