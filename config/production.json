@@ -1,7 +1,7 @@
 {
   "isDev": false,
   "server": {
-    "port": 8888,
+    "port": 80,
     "/* secure */": "/* whether this connects via https */",
     "secure": false,
     "key": "config/sslcerts/key.pem",
@@ -10,7 +10,7 @@
   },
   "rooms": {
     "/* maxClients */": "/* maximum number of clients per room. 0 = no limit */",
-    "maxClients": 0
+    "maxClients": 2
   },
   "stunservers": [
     {
