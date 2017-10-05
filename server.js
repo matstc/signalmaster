@@ -5,12 +5,16 @@ var yetify = require('yetify'),
     sockets = require('./sockets'),
     port = parseInt(process.env.PORT || config.server.port, 10),
     server_handler = function (req, res) {
-        res.writeHead(404);
-        res.end();
+        if (req.url === '/robots.txt') {
+            res.write("User-agent: *\nDisallow: /\n");
+            res.end();
+        } else {
+            res.writeHead(404);
+            res.end();
+        }
     },
     server = null;
 
-// Create an http(s) server instance to that socket.io can listen to
 if (config.server.secure) {
     server = require('https').Server({
         key: fs.readFileSync(config.server.key),
@@ -20,6 +24,7 @@ if (config.server.secure) {
 } else {
     server = require('http').Server(server_handler);
 }
+
 server.listen(port);
 
 sockets(server, config);
